@@ -37,6 +37,23 @@ class ui_main_window(object):
         self.tab_widget.addTab(self.dash_tab, "Dashboard")
         self.tab_widget.addTab(self.maps_tab, "Maps")
         self.tab_widget.addTab(self.saved_tab, "Saved")
+        self.control_dashboard()
+
+    def control_dashboard(self):
+        self.natural_features_label = QtWidgets.QLabel(self.dash_tab)
+        self.natural_features_label.setText("Natural Features:")
+        self.natural_features_label.move(20, 20)
+
+        self.activities_label = QtWidgets.QLabel(self.dash_tab)
+        self.activities_label.setText("Activities:")
+        self.activities_label.move(20, 40)
+
+        self.popular_label = QtWidgets.QLabel(self.dash_tab)
+        self.popular_label.setText("Popular:")
+        self.popular_label.move(20, 60)
+
+
+
 
 
 
