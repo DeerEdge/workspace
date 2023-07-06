@@ -26,9 +26,20 @@ class ui_main_window(object):
         self.dash_tab = QtWidgets.QWidget()
         self.dash_tab.setObjectName("tab1")
 
+        self.maps_tab = QtWidgets.QWidget()
+        self.maps_tab.setObjectName("tab2")
+
+        self.saved_tab = QtWidgets.QWidget()
+        self.saved_tab.setObjectName("tab3")
+
         self.widget = QtWidgets.QWidget(self.dash_tab)
 
-        self.tab_widget.addTab(self.dash_tab, " ")
+        self.tab_widget.addTab(self.dash_tab, "Dashboard")
+        self.tab_widget.addTab(self.maps_tab, "Maps")
+        self.tab_widget.addTab(self.saved_tab, "Saved")
+
+
+
 
 
 if __name__ == "__main__":
