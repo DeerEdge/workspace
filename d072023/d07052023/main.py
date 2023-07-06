@@ -1,11 +1,9 @@
 from PyQt5 import QtWidgets
-import sys
-import os
-
-# path = os.path.abspath("/Users/macbookpro/Documents/GitHub/workspace/072023/07062023/create_widgets.py")
-# sys.path.append(path)
-#
-# import file1
+from d072023.d07062023 import *
+from d072023.d07072023 import *
+from d072023.d07082023 import *
+from d072023.d07092023 import *
+from d072023.d07102023 import *
 
 class ui_main_window(object):
     def setup_window(self, main_window):
