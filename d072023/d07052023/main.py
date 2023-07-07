@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
-from d072023.d07062023 import *
-from d072023.d07072023 import *
+from d072023.d07062023 import create_widgets, dash
+from d072023.d07072023 import location
 from d072023.d07082023 import *
 from d072023.d07092023 import *
 from d072023.d07102023 import *
@@ -43,6 +43,9 @@ class ui_main_window(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+    with open("styles.css", "r") as f:
+        _style = f.read()
+        app.setStyleSheet(_style)
     main_window = QtWidgets.QMainWindow()
     ui = ui_main_window()
     ui.setup_window(main_window)
