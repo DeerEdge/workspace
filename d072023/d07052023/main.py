@@ -2,8 +2,7 @@ from PyQt5 import QtWidgets
 from d072023.d07062023 import create_widgets, dash
 from d072023.d07072023 import location
 from d072023.d07082023 import *
-from d072023.d07092023 import *
-from d072023.d07102023 import *
+
 
 class ui_main_window(object):
     def setup_window(self, main_window):
