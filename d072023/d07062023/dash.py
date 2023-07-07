@@ -7,13 +7,13 @@ class dash_screen(object):
 
     def control_dashboard(self):
         self.natural_features_label = QtWidgets.QLabel(self.dash_tab)
+        self.natural_features_label.setObjectName("Natural_Features_Text_Label")
         self.natural_features_label.setText("Natural Features:")
-        self.natural_features_label.setStyleSheet("font-size: 18px")
         self.natural_features_label.move(40, 20)
 
         self.activities_label = QtWidgets.QLabel(self.dash_tab)
+        self.activities_label.setObjectName("Activities_Text_Label")
         self.activities_label.setText("Activities:")
-        self.activities_label.setStyleSheet("font-size: 18px")
         self.activities_label.move(40, 160)
 
         self.popularCheckBox = QtWidgets.QCheckBox(self.dash_tab)
@@ -43,3 +43,10 @@ class dash_screen(object):
 
         self.activity_boating = QtWidgets.QCheckBox("Boating", self.dash_tab)
         self.activity_boating.move(40, 220)
+
+        self.groupbox = QtWidgets.QGroupBox(self.dash_tab)
+        self.groupbox.setObjectName("GroupBox_Dash")
+        self.groupbox.resize(200, 200)
+        self.groupbox.move(20, 20)
+
+

@@ -229,5 +229,16 @@ QLabel#checkboxes {
     line-height: 1.7em;
 }
 
+QLabel#Natural_Features_Text_Label {
+    font-size: 18px;
+    color: black;
+}
 
+QLabel#Activities_Text_Label {
+    font-size: 18px;
+    color: black;
+}
 
+QGroupBox#GroupBox_Dash {
+    color: aliceblue;
+}
