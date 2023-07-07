@@ -2,7 +2,8 @@ from PyQt5 import QtWidgets
 from d072023.d07062023 import create_widgets, dash
 from d072023.d07072023 import location
 from d072023.d07082023 import *
-
+from d072023.d07092023 import *
+from d072023.d07102023 import *
 
 class ui_main_window(object):
     def setup_window(self, main_window):
@@ -34,18 +35,9 @@ class ui_main_window(object):
         self.tab_widget.addTab(self.dash_tab, "Dashboard")
         self.tab_widget.addTab(self.maps_tab, "Maps")
         self.tab_widget.addTab(self.saved_tab, "Saved")
-        self.control_dashboard()
 
-
-
-
-
-
-
-
-
-
-
+        Screen1 = dash.dash_screen(self.dash_tab)
+        Screen1.control_dashboard()
 
 
 if __name__ == "__main__":
