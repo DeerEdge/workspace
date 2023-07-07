@@ -36,42 +36,7 @@ class ui_main_window(object):
         self.tab_widget.addTab(self.saved_tab, "Saved")
         self.control_dashboard()
 
-    def control_dashboard(self):
-        self.natural_features_label = QtWidgets.QLabel(self.dash_tab)
-        self.natural_features_label.setText("Natural Features:")
-        self.natural_features_label.move(20, 20)
 
-        self.activities_label = QtWidgets.QLabel(self.dash_tab)
-        self.activities_label.setText("Activities:")
-        self.activities_label.move(20, 160)
-
-        self.popularCheckBox = QtWidgets.QCheckBox(self.dash_tab)
-        self.popularCheckBox.setText("Popular")
-        self.popularCheckBox.move(20, 290)
-
-        self.national_forest = QtWidgets.QCheckBox("National Forest", self.dash_tab)
-        self.national_forest.move(20, 40)
-
-        self.lakeshore = QtWidgets.QCheckBox("Lake/Lakeshore", self.dash_tab)
-        self.lakeshore.move(20, 60)
-
-        self.ocean = QtWidgets.QCheckBox("Ocean", self.dash_tab)
-        self.ocean.move(20, 80)
-
-        self.mountainous = QtWidgets.QCheckBox("Mountainous", self.dash_tab)
-        self.mountainous.move(20, 100)
-
-        self.desert = QtWidgets.QCheckBox("Desert", self.dash_tab)
-        self.desert.move(20, 120)
-
-        self.activity_hiking = QtWidgets.QCheckBox("Hiking", self.dash_tab)
-        self.activity_hiking.move(20, 180)
-
-        self.activity_biking = QtWidgets.QCheckBox("Biking", self.dash_tab)
-        self.activity_biking.move(20, 200)
-
-        self.activity_boating = QtWidgets.QCheckBox("Boating", self.dash_tab)
-        self.activity_boating.move(20, 220)
 
 
 
