@@ -2,8 +2,7 @@ from PyQt5 import QtWidgets
 from d072023.d07062023 import create_widgets, dash
 from d072023.d07072023 import location
 from d072023.d07082023 import *
-from d072023.d07092023 import *
-from d072023.d07102023 import *
+
 
 class ui_main_window(object):
     def setup_window(self, main_window):
@@ -44,11 +43,38 @@ class ui_main_window(object):
 
         self.activities_label = QtWidgets.QLabel(self.dash_tab)
         self.activities_label.setText("Activities:")
-        self.activities_label.move(20, 40)
+        self.activities_label.move(20, 160)
 
-        self.popular_label = QtWidgets.QLabel(self.dash_tab)
-        self.popular_label.setText("Popular:")
-        self.popular_label.move(20, 60)
+        self.popularCheckBox = QtWidgets.QCheckBox(self.dash_tab)
+        self.popularCheckBox.setText("Popular")
+        self.popularCheckBox.move(20, 290)
+
+        self.national_forest = QtWidgets.QCheckBox("National Forest", self.dash_tab)
+        self.national_forest.move(20, 40)
+
+        self.lakeshore = QtWidgets.QCheckBox("Lake/Lakeshore", self.dash_tab)
+        self.lakeshore.move(20, 60)
+
+        self.ocean = QtWidgets.QCheckBox("Ocean", self.dash_tab)
+        self.ocean.move(20, 80)
+
+        self.mountainous = QtWidgets.QCheckBox("Mountainous", self.dash_tab)
+        self.mountainous.move(20, 100)
+
+        self.desert = QtWidgets.QCheckBox("Desert", self.dash_tab)
+        self.desert.move(20, 120)
+
+        self.activity_hiking = QtWidgets.QCheckBox("Hiking", self.dash_tab)
+        self.activity_hiking.move(20, 180)
+
+        self.activity_biking = QtWidgets.QCheckBox("Biking", self.dash_tab)
+        self.activity_biking.move(20, 200)
+
+        self.activity_boating = QtWidgets.QCheckBox("Boating", self.dash_tab)
+        self.activity_boating.move(20, 220)
+
+
+
 
 
 
