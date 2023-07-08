@@ -59,11 +59,11 @@ QTabBar::tab:right:!selected {
 
 /* Background  5883AD*/
 QTabWidget::pane {
-    background: #2061A6;
+    background: #8B9A71;
 }
 
 QWidget#display {
-    background-color: #2061A6;
+    background-color: #8B9A71;
 }
 
 /*  #FFD942 */
@@ -240,5 +240,5 @@ QLabel#Activities_Text_Label {
 }
 
 QGroupBox#GroupBox_Dash {
-    color: aliceblue;
+    background-color: #ABBD9A;
 }
