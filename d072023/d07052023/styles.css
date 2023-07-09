@@ -59,11 +59,11 @@ QTabBar::tab:right:!selected {
 
 /* Background  5883AD*/
 QTabWidget::pane {
-    background: #2061A6;
+    background: #8B9A71;
 }
 
 QWidget#display {
-    background-color: #2061A6;
+    background-color: #8B9A71;
 }
 
 /*  #FFD942 */
@@ -229,5 +229,16 @@ QLabel#checkboxes {
     line-height: 1.7em;
 }
 
+QLabel#Natural_Features_Text_Label {
+    font-size: 18px;
+    color: black;
+}
 
+QLabel#Activities_Text_Label {
+    font-size: 18px;
+    color: black;
+}
 
+QGroupBox#GroupBox_Dash {
+    background-color: #ABBD9A;
+}
