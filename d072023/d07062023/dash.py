@@ -54,6 +54,18 @@ class dash_screen(object):
         self.scroll_area.setObjectName("Scroll_Area")
         self.scroll_area.resize(565, 500)
         self.scroll_area.move(250, 60)
+        self.scroll_area.setWidgetResizable(True)
+
+        self.container = QtWidgets.QWidget()
+        self.scroll_area.setWidget(self.container)
+        lay = QtWidgets.QVBoxLayout(self.container)
+        lay.setContentsMargins(10, 10, 0, 0)
+        for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            text = letter * 100
+            label = QtWidgets.QLabel(text)
+            lay.addWidget(label)
+        lay.addStretch()
+
 
 
 
