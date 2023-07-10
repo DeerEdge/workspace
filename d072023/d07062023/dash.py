@@ -29,8 +29,8 @@ class dash_screen(object):
         self.national_forest = QtWidgets.QCheckBox("National Forest", self.groupbox)
         self.national_forest.move(40, 40)
 
-        self.lakeshore = QtWidgets.QCheckBox("Lake/Lakeshore", self.groupbox)
-        self.lakeshore.move(40, 60)
+        self.lake = QtWidgets.QCheckBox("Lake", self.groupbox)
+        self.lake.move(40, 60)
 
         self.ocean = QtWidgets.QCheckBox("Ocean", self.groupbox)
         self.ocean.move(40, 80)
@@ -56,17 +56,14 @@ class dash_screen(object):
         self.scroll_area.move(250, 60)
         self.scroll_area.setWidgetResizable(True)
 
-        self.container = QtWidgets.QWidget()
-        self.scroll_area.setWidget(self.container)
-        lay = QtWidgets.QVBoxLayout(self.container)
+        container = QtWidgets.QWidget()
+        self.scroll_area.setWidget(container)
+
+        lay = QtWidgets.QVBoxLayout(container)
         lay.setContentsMargins(10, 10, 0, 0)
-        for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+        for letter in "ABCDE":
             text = letter * 100
             label = QtWidgets.QLabel(text)
             lay.addWidget(label)
         lay.addStretch()
 
-
-
-
-print('hello')
