@@ -12,14 +12,33 @@ class maps_screen(object):
         self.control_maps()
 
     def control_maps(self):
-        df = pd.read_csv('nationalparks.csv', usecols=['longitude', 'latitude', 'details',])
+        layout = QtWidgets.QVBoxLayout(self.maps_tab)
+        df = pd.read_csv('nationalparks.csv', usecols=['longitude', 'latitude', 'details', ])
         df.columns = ['Longitude', 'Latitude', 'Name']
 
 
-        map = folium.Map(location=[df.Latitude.mean(), df.Longitude.mean()],
-                         zoom_start=6,
-                         control_scale=True)
-        folium.Marker(location=[df.Latitude.mean(), df.Longitude.mean()]).add_to(map)
+        coordinate = (39.82836, -98.57948)
+        map = folium.Map(
+            title="Map",
+            zoom_start=4,
+            location=coordinate,
+            control_scale=True
+        )
+
+        for i, row in df.iterrows():
+            iframe = folium.IFrame('Name:' + str(row["Name"]))
+            popup = folium.Popup(iframe, min_width=300, max_width=300)
+            folium.Marker(location=[row['Latitude'], row['Longitude']],
+                          popup=popup, c=row['Name']).add_to(map)
+
+
+        data = io.BytesIO()
+        map.save(data, close_file=False)
+
+        webView = QtWebEngineWidgets.QWebEngineView()
+        webView.setHtml(data.getvalue().decode())
+        layout.addWidget(webView)
+        self.maps_tab.setLayout(layout)
 
 
 
