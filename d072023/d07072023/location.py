@@ -2,6 +2,8 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtWebEngineWidgets
 import folium
 import io
+import csv
+import pandas as pd
 import sys
 class maps_screen(object):
     def __init__(self, tab):
@@ -10,23 +12,19 @@ class maps_screen(object):
         self.control_maps()
 
     def control_maps(self):
-        layout = QtWidgets.QVBoxLayout(self.maps_tab)
+        df = pd.read_csv('nationalparks.csv', usecols=['longitude', 'latitude', 'details',])
+        df.columns = ['Longitude', 'Latitude', 'Name']
 
 
-        coordinate = (39.82836, -98.57948)
-        m = folium.Map(
-            title = "Golden Gate",
-            zoom_start= 4,
-            location = coordinate,
-        )
+        map = folium.Map(location=[df.Latitude.mean(), df.Longitude.mean()],
+                         zoom_start=6,
+                         control_scale=True)
+        folium.Marker(location=[df.Latitude.mean(), df.Longitude.mean()]).add_to(map)
 
-        # save map data to data object
-        data = io.BytesIO()
-        m.save(data, close_file=False)
 
-        webView = QtWebEngineWidgets.QWebEngineView()
-        webView.setHtml(data.getvalue().decode())
-        layout.addWidget(webView)
-        self.maps_tab.setLayout(layout)
+
+
+
+
 
 
