@@ -229,16 +229,26 @@ QLabel#checkboxes {
     line-height: 1.7em;
 }
 
-QLabel#Natural_Features_Text_Label {
-    font-size: 18px;
-    color: black;
-}
-
-QLabel#Activities_Text_Label {
-    font-size: 18px;
-    color: black;
-}
-
 QGroupBox#GroupBox_Dash {
-    background-color: #ABBD9A;
+    background-color: floralwhite;
+}
+
+QLabel#Filters_Label {
+    font-size: 18px;
+    color: black;
+}
+
+QComboBox#State_Dropdown {
+    border: 1px black;
+    border-radius: 2px;
+}
+
+QComboBox#Features_Dropdown {
+    border: 1px black;
+    border-radius: 2px;
+}
+
+QComboBox#Activities_Dropdown {
+    border: 1px black;
+    border-radius: 2px;
 }

@@ -17,10 +17,10 @@ class maps_screen(object):
         df.columns = ['Longitude', 'Latitude', 'Name']
 
 
-        coordinate = (39.82836, -98.57948)
+        coordinate = (48.31521, -114.66929)
         map = folium.Map(
             title="Map",
-            zoom_start=4,
+            zoom_start=3,
             location=coordinate,
             control_scale=True
         )
