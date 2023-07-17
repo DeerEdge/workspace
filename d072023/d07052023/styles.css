@@ -59,11 +59,11 @@ QTabBar::tab:right:!selected {
 
 /* Background  5883AD*/
 QTabWidget::pane {
-    background: #8B9A71;
+    background: #B6C07C;
 }
 
 QWidget#display {
-    background-color: #8B9A71;
+    background-color: #B6C07C;
 }
 
 /*  #FFD942 */
