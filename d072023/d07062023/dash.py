@@ -1,4 +1,7 @@
 from PyQt5 import QtWidgets
+from PyQt5 import QtGui, QtCore, QtWidgets
+import sqlite3
+from d072023.d07062023 import create_widgets
 
 class dash_screen(object):
     def __init__(self, tab):
@@ -10,7 +13,7 @@ class dash_screen(object):
         self.groupbox = QtWidgets.QGroupBox(self.dash_tab)
         self.groupbox.setObjectName("GroupBox_Dash")
         self.groupbox.resize(210, 540)
-        self.groupbox.move(20, 40)
+        self.groupbox.move(15, 40)
 
         self.filters_label = QtWidgets.QLabel(self.groupbox)
         self.filters_label.setText("Filter By:")
@@ -105,27 +108,57 @@ class dash_screen(object):
         self.pet_checkbox.setObjectName("Pet_CheckBox")
         self.pet_checkbox.move(10, 230)
 
+        self.map_container = QtWidgets.QGroupBox(self.dash_tab)
+        self.map_container.setGeometry(QtCore.QRect(240, 40, 400, 300))
+        self.maps_objects = self.create_QScrollArea("dash_tab", "maps_QScrollArea", "vertical_layout", 835, 85, 360, 595)
+        self.maps = self.maps_objects[0]
+        self.maps_layout = self.maps_objects[1]
+        self.maps_scrollArea = self.maps_objects[2]
 
+        self.populate_with_all()
 
+    def connect_and_retrieve_all(self, db_file, table_name):
+        conn = None
+        try:
+            conn = sqlite3.connect(db_file)
+        except Error as e:
+            print(e)
+        cur = conn.cursor()
+        SQLString = """SELECT * FROM sqlite_master"""
+        cur.execute(SQLString)
 
+        rows = cur.fetchall()
+        for row in rows:
+            print(row)
 
+    def populate_with_all(self):
+        self.connect_and_retrieve_all('new_file', 'PARK_NAMES')
 
-
-
-        self.scroll_area = QtWidgets.QScrollArea(self.dash_tab)
-        self.scroll_area.setObjectName("Scroll_Area")
-        self.scroll_area.resize(565, 500)
-        self.scroll_area.move(250, 60)
-        self.scroll_area.setWidgetResizable(True)
-
-        container = QtWidgets.QWidget()
-        self.scroll_area.setWidget(container)
-
-        lay = QtWidgets.QVBoxLayout(container)
-        lay.setContentsMargins(10, 10, 0, 0)
-        for letter in "ABCDE":
-            text = letter * 100
-            label = QtWidgets.QLabel(text)
-            lay.addWidget(label)
-        lay.addStretch()
-
+    def create_QScrollArea(self, container, object_name, layout, x_coordinate, y_coordinate, fixed_width, min_length):
+        self.scrollArea_object_container = QtWidgets.QWidget()
+        if container == "dash_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.dash_tab)
+        elif container == "dashboard_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.dashboard_tab)
+        elif container == "maps_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.maps_tab)
+        elif container == "points_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.points_tab)
+        elif container == "rewards_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.rewards_tab)
+        elif container == "admin_statistics_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.admin_statistics_tab)
+        self.QScrollArea.setFixedWidth(fixed_width)
+        self.QScrollArea.setFixedHeight(min_length)
+        self.QScrollArea.move(x_coordinate, y_coordinate)
+        self.QScrollArea.setWidgetResizable(True)
+        self.QScrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        if layout == "vertical_layout":
+            self.scroll_vertical_layout = QtWidgets.QVBoxLayout(self.scrollArea_object_container)
+            self.scrollArea_object_container.setLayout(self.scroll_vertical_layout)
+            return [self.scrollArea_object_container, self.scroll_vertical_layout, self.QScrollArea]
+        elif layout == "grid_layout":
+            self.scroll_grid_layout = QtWidgets.QGridLayout(self.scrollArea_object_container)
+            self.scrollArea_object_container.setLayout(self.scroll_grid_layout)
+            self.QScrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+            return [self.scrollArea_object_container, self.scroll_grid_layout, self.QScrollArea]

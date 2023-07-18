@@ -159,8 +159,8 @@ class create_QTextEdit():
 class create_QScrollArea():
     def __init__(self, container, object_name, layout, x_coordinate, y_coordinate, fixed_width, min_length):
         self.scrollArea_object_container = QtWidgets.QWidget()
-        if container == "upcoming_events_tab":
-            self.QScrollArea = QtWidgets.QScrollArea(self.upcoming_events_tab)
+        if container == "dash_tab":
+            self.QScrollArea = QtWidgets.QScrollArea(self.dash_tab)
         elif container == "dashboard_tab":
             self.QScrollArea = QtWidgets.QScrollArea(self.dashboard_tab)
         elif container == "maps_tab":
